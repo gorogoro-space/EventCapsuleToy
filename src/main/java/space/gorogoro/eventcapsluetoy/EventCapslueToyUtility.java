@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
 
-import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -100,22 +98,27 @@ public class EventCapslueToyUtility {
    */
   public static String generateCode(){
     return String.format("%s-%s-%s",
-      RandomStringUtils.random(4, NUMALPHA),
-      RandomStringUtils.random(6, NUMALPHA),
-      RandomStringUtils.random(4, NUMALPHA)
+      randomChars(4),
+      randomChars(6),
+      randomChars(4)
     );
   }
 
   /**
-   * Scan Format
-   * @param String format
-   * @param String str
+   * Random Chars
+   * @param int Length
    * @return String value
    */
-  public static String scanf(String format, String str) {
-    return StringUtils.difference(format, str);
+  public static String randomChars(int length) {
+    StringBuilder sb = new StringBuilder();
+    Random random = new Random();
+    String chars = NUMALPHA;
+    for (int i = 0; i < length; i++) {
+      sb.append(chars.charAt(random.nextInt(chars.length())));
+    }
+    return sb.toString();
   }
-  
+
   public static ArrayList<Player> getTarget(Plugin capsluetoy, String selector) {
     return getTarget(capsluetoy, selector, null);
   }

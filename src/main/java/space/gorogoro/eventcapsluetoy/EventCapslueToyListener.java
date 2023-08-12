@@ -11,6 +11,8 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
 import org.bukkit.block.Sign;
 import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.type.HangingSign;
+import org.bukkit.block.data.type.WallHangingSign;
 import org.bukkit.block.data.type.WallSign;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -107,7 +109,7 @@ public class EventCapslueToyListener implements Listener{
     }
     Block clickedBlock = event.getClickedBlock();
     BlockData data = clickedBlock.getBlockData();
-    if (data instanceof Sign || data instanceof WallSign) {
+    if (data instanceof Sign || data instanceof WallSign || data instanceof HangingSign || data instanceof WallHangingSign) {
       signProc(event);
     }else if(data.getMaterial().equals(Material.CHEST)) {
       chestProc(event);
