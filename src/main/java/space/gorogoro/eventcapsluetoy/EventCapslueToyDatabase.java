@@ -172,8 +172,6 @@ public class EventCapslueToyDatabase {
         + ");"
       );
       stmt.executeUpdate("CREATE UNIQUE INDEX IF NOT EXISTS capsluetoy_name_uindex ON capsluetoy (capsluetoy_name);");
-      stmt.executeUpdate("CREATE UNIQUE INDEX IF NOT EXISTS world_name_sign_xyz_uindex ON capsluetoy (world_name, sign_x, sign_y, sign_z);");
-      stmt.executeUpdate("CREATE UNIQUE INDEX IF NOT EXISTS world_name_chest_xyz_uindex ON capsluetoy (world_name, chest_x, chest_y, chest_z);");
 
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticket ("
         + "  id INTEGER PRIMARY KEY AUTOINCREMENT"
